@@ -2,7 +2,7 @@ import cn from "classnames";
 import styles from "./Header.module.css";
 import Logo from "../../assets/oldwave-logo-horizontal.png";
 import User from "../../assets/login-icon.svg";
-import Shopping_bag from "../../assets/carrito-icon.svg";
+import Shopping_bag from "../../assets/carrito.svg";
 
 function Header() {
   return (

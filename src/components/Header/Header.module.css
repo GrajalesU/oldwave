@@ -21,8 +21,7 @@
 
 .header_image {
   padding: 20px;
-  height: 25px;
-  width: 105px;
+  width: 115px;
 }
 
 .header_icons {
@@ -31,7 +30,7 @@
 }
 
 .header_menu {
-  font-size: 22px;
+  font-size: 30px;
   justify-content: left;
   padding-left: 20px;
   display: none;
@@ -39,17 +38,27 @@
 
 .header_user {
   font-size: 30px;
-  padding-right: 10px;
+  padding-right: 15px;
 }
 
 .header_shopping_bag {
-  font-size: 30px;
+  width: 25px;
   padding-right: 45px;
-  padding-bottom: 8px;
+  padding-bottom: 4px;
 }
 
 .header_input {
   display: block;
+  text-align: center;
+  width: 185px;
+  height: 21px;
+  border: 1px solid transparent;
+  padding: 15px 8px 15px 8px;
+  border-radius: 19px;
+  opacity: 1;
+  outline: none;
+  background-color: #f4f6fa;
+  margin-right: 15px;
 }
 
 @media (max-width: 600px) {
@@ -61,5 +70,12 @@
   }
   .header_shopping_bag {
     padding-right: 10px;
+  }
+}
+
+@media (min-width: 600px) {
+  .header_image {
+    position: absolute;
+    left: 30px;
   }
 }
