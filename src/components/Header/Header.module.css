@@ -1,6 +1,5 @@
 .header {
   height: 66px;
-  border: 1px solid black;
   display: flex;
   width: 100%;
 }
@@ -25,7 +24,7 @@
 }
 
 .header_icons {
-  color: #772ce8;
+  color: var(--primary-color);
   text-align: center;
 }
 
