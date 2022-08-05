@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div className="App">
-      <div style={{width: '208px', height: '386px'}}>
+      <div style={{width: '240px'}}>
 
       <CardProduct/>
       </div>
