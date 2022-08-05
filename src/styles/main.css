@@ -18,7 +18,8 @@ code {
     monospace;
 }
 
-input {
+input,
+button {
   font-family: var(--main-font);
 }
 
