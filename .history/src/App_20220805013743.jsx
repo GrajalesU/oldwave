@@ -6,9 +6,12 @@ import ProductPage from './pages/ProductPage/ProductPage'
 function App() {
 
   return (
-    
+    <div className="App">
+      <div style={{width: '208px', height: '386px'}}>
+
       <ProductPage/>
-    
+      </div>
+    </div>
   )
 }
 

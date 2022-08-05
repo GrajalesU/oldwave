@@ -5,18 +5,18 @@ const CardProduct = () => {
   return (
     <Box
       sx={{
-        bgcolor: "backgroundCard.main",
+        bgcolor: "primary.main",
         width: "208px",
         height: "386px",
         ml: "10px",
-        borderRadius: '8px'
+        borderRadius: '10px'
       }}
     >
       <Box
         sx={{
           width: "100%",
           height: "225px",
-          backgroundImage: `url(https://dummyimage.com/208x277/000000/4a52c2.png)`,
+          backgroundImage: `url(https://dummyimage.com/600x400/000000/4a52c2.png)`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           borderTopRightRadius: 10,
@@ -57,8 +57,9 @@ const CardProduct = () => {
         <Grid item>
           <Typography
             sx={{
-              color: 'primary.main',
+              //fontFamily: "PoppinsSemiBold",
               fontSize: "13px",
+              color: "violetMain.main",
             }}
           >
             apple
@@ -70,20 +71,20 @@ const CardProduct = () => {
           <Grid item>
             <Typography
               sx={{
-                fontFamily: "Poppins",
+                //fontFamily: "PoppinsBold",
                 fontSize: "14px",
+                color: "violetMain.main",
               }}
             >
-              $2'300.000    
+              $2'300.000
             </Typography>
           </Grid>
           <Grid item>
             <Typography
               sx={{
-                
+                fontFamily: "sans-serif",
                 fontSize: "14px",
-                ml:2,
-                color: 'primary.main'
+                //color: "violetMain.main",
               }}
             >
               $2'300.000
@@ -98,17 +99,14 @@ const CardProduct = () => {
           onClick={() => handleClick()}
           sx={{
             width: "166px",
-            bgcolor: "primary.main",
-            color: "white.main",
+            bgcolor: "red",
+            color: "black",
             borderRadius: 10,
             textTransform: "none",
+            //fontFamily: "PoppinsSemiBold",
             fontSize: "13px",
             p: "3px 20px 3px 20px",
             m: 3,
-            '&:hover':{
-              backgroundColor: 'primary.main',
-              color: "white.main"
-            }
           }}
         >
           Agregar al carrito

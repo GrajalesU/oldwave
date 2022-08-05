@@ -57,7 +57,7 @@ const CardProduct = () => {
         <Grid item>
           <Typography
             sx={{
-              color: 'primary.main',
+              //fontFamily: "PoppinsSemiBold",
               fontSize: "13px",
             }}
           >
@@ -105,10 +105,6 @@ const CardProduct = () => {
             fontSize: "13px",
             p: "3px 20px 3px 20px",
             m: 3,
-            '&:hover':{
-              backgroundColor: 'primary.main',
-              color: "white.main"
-            }
           }}
         >
           Agregar al carrito

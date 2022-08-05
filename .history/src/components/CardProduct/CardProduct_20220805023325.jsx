@@ -106,7 +106,7 @@ const CardProduct = () => {
             p: "3px 20px 3px 20px",
             m: 3,
             '&:hover':{
-              backgroundColor: 'primary.main',
+              backgroundColor: 'secondary.main',
               color: "white.main"
             }
           }}

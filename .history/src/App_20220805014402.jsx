@@ -8,6 +8,9 @@ function App() {
   return (
     
       <ProductPage/>
+      {/* <div style={{width: '208px', height: '386px'}}>
+
+      </div> */}
     
   )
 }

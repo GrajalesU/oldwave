@@ -57,7 +57,7 @@ const CardProduct = () => {
         <Grid item>
           <Typography
             sx={{
-              color: 'primary.main',
+              //fontFamily: "PoppinsSemiBold",
               fontSize: "13px",
             }}
           >
@@ -70,20 +70,18 @@ const CardProduct = () => {
           <Grid item>
             <Typography
               sx={{
-                fontFamily: "Poppins",
+                //fontFamily: "PoppinsBold",
                 fontSize: "14px",
               }}
             >
-              $2'300.000    
+              $2'300.000
             </Typography>
           </Grid>
           <Grid item>
             <Typography
               sx={{
-                
+                fontFamily: "sans-serif",
                 fontSize: "14px",
-                ml:2,
-                color: 'primary.main'
               }}
             >
               $2'300.000
@@ -105,10 +103,6 @@ const CardProduct = () => {
             fontSize: "13px",
             p: "3px 20px 3px 20px",
             m: 3,
-            '&:hover':{
-              backgroundColor: 'primary.main',
-              color: "white.main"
-            }
           }}
         >
           Agregar al carrito
