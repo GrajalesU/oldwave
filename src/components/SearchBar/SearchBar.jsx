@@ -3,8 +3,8 @@ import Select from "react-select";
 
 import styles from "./SearchBar.module.css";
 import Search from "../../assets/icon-search-bar.svg";
-import ArrowUp from "../../assets/Icon-arrow-up.svg";
 import Filter from "../../assets/icon-filter.svg";
+import { useState } from "react";
 
 const options = [
   { value: "Carros", label: "Carros" },
@@ -18,7 +18,27 @@ const options = [
   { value: "Electrodomésticos", label: "Electrodomésticos" },
 ];
 
-function SearchBar() {
+function SearchBar({ onSearch: handleSearch }) {
+  const [search, setSearch] = useState("");
+  const [inputValue, setInputValue] = useState("");
+
+  const onChange = (event) => {
+    setInputValue(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const onSearch = () => {
+    setSearch(inputValue);
+    console.log(inputValue);
+    handleSearch(search);
+  };
+
+  const handleEnter = (event) => {
+    if (event.key === "Enter" && inputValue !== "") {
+      onSearch();
+    }
+  };
+
   return (
     <div className={styles.search_box}>
       <div className={styles.search_bar}>
@@ -30,15 +50,9 @@ function SearchBar() {
         <input
           className={styles.search_input}
           placeholder="Estoy buscando..."
+          onChange={onChange}
+          onKeyDown={handleEnter}
         ></input>
-        {/* <span className={styles.search_categories}>Todas las categorías</span>
-        <span>
-          <img
-            className={styles.search_arrow_up}
-            src={ArrowUp}
-            alt="Boton para desplegar las categorias"
-          ></img>
-        </span> */}
         <Select
           options={options}
           className={cn("select", styles.select)}
@@ -49,10 +63,12 @@ function SearchBar() {
         />
       </div>
 
-      <button className={styles.search_button}>Buscar</button>
+      <button className={styles.search_button} onClick={onSearch}>
+        Buscar
+      </button>
       <div className={styles.filter}>
         <img src={Filter} alt="Icono de filtro"></img>
-        <button>Filtros</button>
+        <button className={styles.filter_button}>Filtros</button>
       </div>
     </div>
   );
