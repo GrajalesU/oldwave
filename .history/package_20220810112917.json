@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.8.4",
@@ -15,9 +16,13 @@
     "@mui/styled-engine-sc": "^5.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "styled-components": "^5.3.5",
+    "styled-components": "^5.3.5"
+=======
     "classnames": "^2.3.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-select": "^5.4.0"
+>>>>>>> 5b0d0d55523c4782f26d7bedea57770bc30425ea
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
