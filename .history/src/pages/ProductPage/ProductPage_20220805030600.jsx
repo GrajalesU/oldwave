@@ -1,7 +1,17 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import CardProduct from "../../components/CardProduct/CardProduct";
 import FilterComponent from "../../components/FilterComponent/FilterComponent";
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
 
 const ProductPage = () => {
   return (
@@ -35,7 +45,7 @@ const ProductPage = () => {
             <div>45 productos</div>
             <div>Ordenar por relevancia</div>
           </div>
-          {Array.from(Array(45)).map((_, index) => (
+          {Array.from(Array(20)).map((_, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
               <CardProduct />
             </Grid>
