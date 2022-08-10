@@ -9,7 +9,7 @@ const CardProduct = () => {
         width: "208px",
         height: "386px",
         ml: "10px",
-        borderRadius: "8px",
+        borderRadius: '8px'
       }}
     >
       <Box
@@ -30,6 +30,7 @@ const CardProduct = () => {
         justifyContent="center"
         alignItems="center"
       >
+        {/*Nombre*/}
         <Grid item sx={{ mt: 1 }}>
           <Box
             sx={{
@@ -51,34 +52,38 @@ const CardProduct = () => {
             </Typography>
           </Box>
         </Grid>
+
+        {/*Marca*/}
         <Grid item>
           <Typography
             sx={{
-              color: "primary.main",
+              color: 'primary.main',
               fontSize: "13px",
             }}
           >
             apple
           </Typography>
         </Grid>
+
+        {/*Precio*/}
         <Grid item container justifyContent="center" alignItems="center">
           <Grid item>
             <Typography
               sx={{
                 fontFamily: "Poppins",
                 fontSize: "14px",
-                textDecoration: "line-through",
               }}
             >
-              $2'300.000
+              $2'300.000    
             </Typography>
           </Grid>
           <Grid item>
             <Typography
               sx={{
+                textDecoration: 'line-through',
                 fontSize: "14px",
-                ml: 2,
-                color: "primary.main",
+                ml:2,
+                color: 'primary.main'
               }}
             >
               $2'300.000
@@ -86,6 +91,8 @@ const CardProduct = () => {
           </Grid>
         </Grid>
       </Grid>
+
+      {/*Boton Agregar al carro de Compras*/}
       <Box item sx={{ mt: "-10px" }}>
         <Button
           onClick={() => handleClick()}
@@ -98,10 +105,10 @@ const CardProduct = () => {
             fontSize: "13px",
             p: "3px 20px 3px 20px",
             m: 3,
-            "&:hover": {
-              backgroundColor: "primary.main",
-              color: "white.main",
-            },
+            '&:hover':{
+              backgroundColor: 'primary.main',
+              color: "white.main"
+            }
           }}
         >
           Agregar al carrito
