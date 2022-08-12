@@ -24,13 +24,11 @@ function SearchBar({ onSearch: handleSearch }) {
 
   const onChange = (event) => {
     setInputValue(event.target.value);
-    console.log(event.target.value);
   };
 
   const onSearch = () => {
     setSearch(inputValue);
-    console.log(inputValue);
-    handleSearch(search);
+    handleSearch(inputValue);
   };
 
   const handleEnter = (event) => {
