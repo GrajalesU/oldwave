@@ -1,31 +1,45 @@
-import React from "react";
-import "./App.css";
-import ProductPage from "./pages/ProductPage/ProductPage";
-
-import { useState } from "react";
-import Header from "./components/Header/Header";
-import SearchBar from "./components/SearchBar/SearchBar";
-import "./styles/main.css";
-import { useEffect } from "react";
+import { useState } from 'react'
+import logo from './logo.svg'
+import './App.css'
 
 function App() {
-  const [search, setSearch] = useState("");
-
-  const handleSearch = (query) => {
-    console.log(query);
-    setSearch(query);
-    fetch("https://oldwave-backend.herokuapp.com/api/product?query=" + query)
-      .then((response) => response.json())
-      .then((data) => console.log(data, search));
-  };
+  const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <Header></Header>
-      <SearchBar onSearch={handleSearch} />
-      <ProductPage />
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>Hello Vite + React!</p>
+        <p>
+          <button type="button" onClick={() => setCount((count) => count + 1)}>
+            count is: {count}
+          </button>
+        </p>
+        <p>
+          Edit <code>App.jsx</code> and save to test HMR updates.
+        </p>
+        <p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+          {' | '}
+          <a
+            className="App-link"
+            href="https://vitejs.dev/guide/features.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Vite Docs
+          </a>
+        </p>
+      </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
