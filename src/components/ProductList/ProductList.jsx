@@ -1,9 +1,9 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import CardProduct from "../../components/CardProduct/CardProduct";
-import FilterComponent from "../../components/FilterComponent/FilterComponent";
+import CardProduct from "../CardProduct/CardProduct";
+import FilterComponent from "../FilterComponent/FilterComponent";
 
-const ProductPage = () => {
+const ProductList = () => {
   return (
     <div
       style={{
@@ -16,8 +16,7 @@ const ProductPage = () => {
     >
       <Grid container spacing={2} direction="row">
         <Grid item xs={3}>
-            <FilterComponent />
-
+          <FilterComponent />
         </Grid>
 
         <Grid container item xs={9} spacing={2}>
@@ -29,7 +28,7 @@ const ProductPage = () => {
               display: "flex",
               justifyContent: "space-between",
               marginRight: "1rem",
-              fontFamily: 'Poppins'
+              fontFamily: "Poppins",
             }}
           >
             <div>45 productos</div>
@@ -46,4 +45,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductList;
