@@ -3,7 +3,8 @@ import Grid from "@mui/material/Grid";
 import CardProduct from "../CardProduct/CardProduct";
 import FilterComponent from "../FilterComponent/FilterComponent";
 
-const ProductList = () => {
+const ProductList = ({ products }) => {
+  console.log(products.length);
   return (
     <div
       style={{
@@ -31,12 +32,21 @@ const ProductList = () => {
               fontFamily: "Poppins",
             }}
           >
-            <div>45 productos</div>
+            <div>{products.length} productos</div>
             <div>Ordenar por relevancia</div>
           </div>
-          {Array.from(Array(45)).map((_, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-              <CardProduct />
+          {products.map((product, index) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+              <CardProduct
+                id={product.id}
+                name={product.name}
+                brand={product.brand}
+                price={product.price}
+                thumbnail={product.thumbnail}
+                city={product.city}
+                reseller={product.reseller}
+                reseller_rating={product.reseller_rating}
+              />
             </Grid>
           ))}
         </Grid>

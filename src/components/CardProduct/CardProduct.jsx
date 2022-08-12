@@ -1,7 +1,16 @@
 import React from "react";
 import { Box, Grid, Typography, Button } from "@mui/material";
 
-const CardProduct = () => {
+const CardProduct = ({
+  id,
+  name,
+  brand,
+  price,
+  thumbnail,
+  city,
+  reseller,
+  reseller_rating,
+}) => {
   return (
     <Box
       sx={{
@@ -16,7 +25,7 @@ const CardProduct = () => {
         sx={{
           width: "100%",
           height: "225px",
-          backgroundImage: `url(https://dummyimage.com/208x277/000000/4a52c2.png)`,
+          backgroundImage: `url(${thumbnail})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           borderTopRightRadius: 10,
@@ -47,7 +56,7 @@ const CardProduct = () => {
                 fontSize: "13px",
               }}
             >
-              Iphone 11 64GB negro
+              {name}
             </Typography>
           </Box>
         </Grid>
@@ -58,7 +67,7 @@ const CardProduct = () => {
               fontSize: "13px",
             }}
           >
-            apple
+            {brand}
           </Typography>
         </Grid>
         <Grid item container justifyContent="center" alignItems="center">
@@ -70,7 +79,7 @@ const CardProduct = () => {
                 textDecoration: "line-through",
               }}
             >
-              $2'300.000
+              {price}
             </Typography>
           </Grid>
           <Grid item>
@@ -81,12 +90,12 @@ const CardProduct = () => {
                 color: "primary.main",
               }}
             >
-              $2'300.000
+              {price}
             </Typography>
           </Grid>
         </Grid>
       </Grid>
-      <Box item sx={{ mt: "-10px" }}>
+      <Box sx={{ mt: "-10px" }}>
         <Button
           onClick={() => handleClick()}
           sx={{
