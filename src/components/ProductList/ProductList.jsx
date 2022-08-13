@@ -1,10 +1,9 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import CardProduct from "../CardProduct/CardProduct";
+import ProductCard from "../ProductCard/ProductCard";
 import FilterComponent from "../FilterComponent/FilterComponent";
 
 const ProductList = ({ products }) => {
-  console.log(products.length);
   return (
     <div
       style={{
@@ -37,7 +36,7 @@ const ProductList = ({ products }) => {
           </div>
           {products.map((product, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-              <CardProduct
+              <ProductCard
                 id={product.id}
                 name={product.name}
                 brand={product.brand}
