@@ -1,9 +1,9 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import CardProduct from "../../components/CardProduct/CardProduct";
-import FilterComponent from "../../components/FilterComponent/FilterComponent";
+import ProductCard from "../ProductCard/ProductCard";
+import FilterComponent from "../FilterComponent/FilterComponent";
 
-const ProductPage = () => {
+const ProductList = ({ products }) => {
   return (
     <div
       style={{
@@ -16,8 +16,7 @@ const ProductPage = () => {
     >
       <Grid container spacing={2} direction="row">
         <Grid item xs={3}>
-            <FilterComponent />
-
+          <FilterComponent />
         </Grid>
 
         <Grid container item xs={9} spacing={2}>
@@ -29,15 +28,24 @@ const ProductPage = () => {
               display: "flex",
               justifyContent: "space-between",
               marginRight: "1rem",
-              fontFamily: 'Poppins'
+              fontFamily: "Poppins",
             }}
           >
-            <div>45 productos</div>
+            <div>{products.length} productos</div>
             <div>Ordenar por relevancia</div>
           </div>
-          {Array.from(Array(45)).map((_, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-              <CardProduct />
+          {products.map((product, index) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+              <ProductCard
+                id={product.id}
+                name={product.name}
+                brand={product.brand}
+                price={product.price}
+                thumbnail={product.thumbnail}
+                city={product.city}
+                reseller={product.reseller}
+                reseller_rating={product.reseller_rating}
+              />
             </Grid>
           ))}
         </Grid>
@@ -46,4 +54,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductList;

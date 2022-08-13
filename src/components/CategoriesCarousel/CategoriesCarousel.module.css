@@ -1,0 +1,25 @@
+.icon {
+  font-size: 36px;
+  margin-bottom: 3px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  word-break: break-all;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container span {
+  font-size: 12px;
+}
+
+.slider {
+  padding: 30px;
+}

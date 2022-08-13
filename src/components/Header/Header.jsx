@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import Logo from "../../assets/oldwave-logo-horizontal.png";
 import User from "../../assets/login-icon.svg";
 import Shopping_bag from "../../assets/carrito.svg";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -17,17 +18,18 @@ function Header() {
         >
           menu
         </span>
-        <img
-          className={styles.header_image}
-          src={Logo}
-          alt="Logotipo OldWave"
-        ></img>
+        <Link to="/">
+          <img
+            className={styles.header_image}
+            src={Logo}
+            alt="Logotipo OldWave"
+          ></img>
+        </Link>
       </div>
       <div className={styles.header_end}>
-        <input
-          className={styles.header_input}
-          placeholder="Regístrate o inicia sesión"
-        ></input>
+        <button className={styles.header_register}>
+          Regístrate o inicia sesión
+        </button>
         <img
           className={cn(
             "material-symbols-outlined",

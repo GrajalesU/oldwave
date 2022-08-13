@@ -19,7 +19,6 @@ const options = [
 ];
 
 function SearchBar({ onSearch: handleSearch }) {
-  const [search, setSearch] = useState("");
   const [inputValue, setInputValue] = useState("");
 
   const onChange = (event) => {
@@ -27,7 +26,6 @@ function SearchBar({ onSearch: handleSearch }) {
   };
 
   const onSearch = () => {
-    setSearch(inputValue);
     handleSearch(inputValue);
   };
 

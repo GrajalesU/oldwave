@@ -1,30 +1,29 @@
 import React from "react";
-import "./App.css";
-import ProductPage from "./pages/ProductPage/ProductPage";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import { useState } from "react";
-import Header from "./components/Header/Header";
-import SearchBar from "./components/SearchBar/SearchBar";
+import Layout from "./components/Layout/Layout";
+import Home from "./pages/Home/Home";
+import Search from "./pages/Search/Search";
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
+
 import "./styles/main.css";
-import { useEffect } from "react";
+import "./App.css";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
-  const [search, setSearch] = useState("");
-
-  const handleSearch = (query) => {
-    console.log(query);
-    setSearch(query);
-    fetch("https://oldwave-backend.herokuapp.com/api/product?query=" + query)
-      .then((response) => response.json())
-      .then((data) => console.log(data, search));
-  };
-
   return (
-    <div>
-      <Header></Header>
-      <SearchBar onSearch={handleSearch} />
-      <ProductPage />
-    </div>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/search/:query" element={<Search />} />
+          <Route path="/product/:id/*" element={<ProductDetail />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
