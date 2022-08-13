@@ -1,0 +1,21 @@
+.slick-slider {
+  padding-bottom: 5px;
+}
+
+.slick-slider > .slick-next {
+  right: 10px;
+  z-index: 1;
+}
+
+.slick-slider > .slick-prev {
+  left: 10px;
+  z-index: 1;
+}
+
+.slick-slider > .slick-dots {
+  bottom: 10px;
+}
+
+.slick-slider > .slick-list {
+  padding-bottom: 25px;
+}
