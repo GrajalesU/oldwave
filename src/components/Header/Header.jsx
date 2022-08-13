@@ -27,10 +27,9 @@ function Header() {
         </Link>
       </div>
       <div className={styles.header_end}>
-        <input
-          className={styles.header_input}
-          placeholder="Regístrate o inicia sesión"
-        ></input>
+        <button className={styles.header_register}>
+          Regístrate o inicia sesión
+        </button>
         <img
           className={cn(
             "material-symbols-outlined",

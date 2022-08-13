@@ -29,8 +29,7 @@ const ProductCard = ({
         />
         <figcaption className={styles.figcaption}>
           <strong>{reseller}</strong>
-          &nbsp;•&nbsp; Puntuación:&nbsp;
-          {reseller_rating}
+          Puntuación:&nbsp; {reseller_rating}
         </figcaption>
       </figure>
       <div className={styles.info}>
