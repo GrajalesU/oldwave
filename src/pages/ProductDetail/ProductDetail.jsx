@@ -1,72 +1,54 @@
-import React, { useEffect } from 'react'
-import styles from './ProductDetail.module.css'
-import Slider from 'react-slick'
-const ProductDetail = () => {
-  const settings = {
-    className: styles.slider,
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    arrows: false,
-    customPaging: function (i) {
-      return (
-        <img src="https://dummyimage.com/208x277/000000/4a52c2.png" alt="" className={styles.carrousel} />
-      );
-    },
-    appendDots: dots => <ul>{dots}</ul>,
-    dotsClass: `slick-dots slick-thumb ${styles.slick_dots}`,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          dotsClass: 'slick-dots slick-thumb',
-          customPaging: i => <button>{i + 1}</button>,
-          appendDots: dots => <ul>{dots}</ul>,
-        }
-      }
-    ]
-  }
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { formatPrice } from "../../utils/numbers";
 
+import ProductImages from '../../components/ProductImages/ProductImages';
+
+import styles from './ProductDetail.module.css'
+
+const ProductDetail = () => {
+
+
+  //const img_product = product.img.map(img => img.src) //[src,src,src]
+
+  const [product, setProduct] = useState()
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch("https://oldwave-backend.herokuapp.com/api/product/" + id)
+      .then((response) => response.json())
+      .then((data) => {
+        setProduct(data[0]);
+        console.log(data);
+      });
+  }, [id]);
 
   return (
 
-    <div className={styles.container} >
-      <section className={styles.section}>
-        <Slider {...settings} >
-          <picture className={styles.slider_item}>
-            <img src="https://dummyimage.com/208x277/000000/4a52c2.png" alt="" />
-          </picture>
-          <picture className={styles.slider_item}>
-            <img src="https://dummyimage.com/208x277/000000/4a52c2.png" alt="" />
-          </picture>
-          <picture className={styles.slider_item}>
-            <img src="https://dummyimage.com/208x277/000000/4a52c2.png" alt="" />
-          </picture>
-          <picture className={styles.slider_item}>
-            <img src="https://dummyimage.com/208x277/000000/4a52c2.png" alt="" />
-          </picture>
-        </Slider>
-      </section>
-      <section className={styles.product_detail}>
-        <small className={styles.product_detail_able}>Disponible</small>
-        <h1 className={styles.product_detail_title}>Nombre-Marca</h1>
-        <span className={styles.product_detail_description}> Air Force 90's</span>
-        <span className={styles.product_detail_price}>$ 1'850.000</span>
-        <span>Medellín</span>
+    product && (
+      <div className={styles.container} >
+        <section className={styles.section}>
+          {product.imgs && <ProductImages product={product} />}
+        </section>
+        <section className={styles.product_detail}>
+          <small className={styles.product_detail_able}>Disponible</small>
+          <h1 className={styles.product_detail_title}>{product.name} {product.brand}</h1>
+          <span className={styles.product_detail_description}> {product.description}</span>
+          <span className={styles.product_detail_price}>{formatPrice(product.price)}</span>
+          <span>{product.city}</span>
 
-        <div className={styles.product_reseller}>
-          <picture className={styles.product_reseller_logo}>
-            <img src="https://dummyimage.com/208x277/000000/4a52c2.png" alt="" />
-          </picture>
-          <span className={styles.product_reseller_name}>reseller name</span>
-          <span className={styles.produc_reseller_rating}> 3.2 ⭐</span>
-        </div>
+          <div className={styles.product_reseller}>
+            <picture className={styles.product_reseller_logo}>
+              <img src={product.reseller_logo} alt="Reseller Logo" />
+            </picture>
+            <span className={styles.product_reseller_name}>{product.reseller}</span>
+            <span className={styles.produc_reseller_rating}> {product.reseller_rating} ⭐</span>
+          </div>
 
-      </section>
-    </div >
+        </section>
+      </div >
+    )
   )
 }
 
