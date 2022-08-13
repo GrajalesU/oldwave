@@ -1,10 +1,11 @@
 .containerFooter {
+  margin-top: 25px;
   height: 25vh;
 }
 
 .paymentSection {
   padding: 0 148px 0 148px;
-  background-color: #C7F3FD;
+  background-color: #c7f3fd;
   display: flex;
   width: 100%;
   font-size: 16px;
@@ -85,8 +86,8 @@
   cursor: pointer;
 }
 
-.desplegable{
-    display: none;
+.desplegable {
+  display: none;
 }
 
 .textSpan {
@@ -100,13 +101,13 @@
   margin-top: 60px;
 }
 
-.desplegable{
-    display: none;
+.desplegable {
+  display: none;
 }
 
 @media (max-width: 900px) {
   .paymentSection {
-    background-color: #C7F3FD;
+    background-color: #c7f3fd;
     font-size: 16px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -174,9 +175,9 @@
     margin-top: 10px;
   }
 
-  .desplegable{
+  .desplegable {
     display: block;
-}
+  }
 }
 
 @media (max-width: 600px) {
