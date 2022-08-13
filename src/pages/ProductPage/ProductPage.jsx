@@ -35,7 +35,7 @@ const ProductPage = () => {
             <div>45 productos</div>
             <div>Ordenar por relevancia</div>
           </div>
-          {Array.from(Array(45)).map((_, index) => (
+          {Array.from(Array(1)).map((_, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
               <CardProduct />
             </Grid>

@@ -9,7 +9,7 @@ function Header() {
     <div className={styles.header}>
       <div className={styles.header_begin}>
         <span
-          class={cn(
+          className={cn(
             "material-symbols-outlined",
             styles.header_icons,
             styles.header_menu
@@ -29,7 +29,7 @@ function Header() {
           placeholder="Regístrate o inicia sesión"
         ></input>
         <img
-          class={cn(
+          className={cn(
             "material-symbols-outlined",
             styles.header_icons,
             styles.header_user
@@ -38,7 +38,7 @@ function Header() {
           alt="Icono de login"
         ></img>
         <img
-          class={cn(
+          className={cn(
             "material-symbols-outlined",
             styles.header_icons,
             styles.header_shopping_bag
