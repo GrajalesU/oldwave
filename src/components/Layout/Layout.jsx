@@ -1,6 +1,6 @@
 import Header from "../Header/Header";
 import SearchBar from "../SearchBar/SearchBar";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 
 function Layout({ children }) {
   const navigate = useNavigate();
@@ -9,11 +9,11 @@ function Layout({ children }) {
   };
 
   return (
-    <div>
+    <>
       <Header />
       <SearchBar onSearch={handleSearch} />
       {children}
-    </div>
+    </>
   );
 }
 
