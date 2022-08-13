@@ -1,3 +1,5 @@
+@import './slider.css';
+
 :root {
   --main-font: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
@@ -53,6 +55,7 @@ div.react-select__placeholder {
 
 div.react-select__value-container {
   padding-left: 15px;
+<<<<<<< HEAD
 }
 
 .button {
