@@ -1,5 +1,5 @@
-import styles from './ProductImages.module.css'
-import Slider from 'react-slick'
+import styles from "./ProductImages.module.css";
+import Slider from "react-slick";
 const ProductImages = ({ product }) => {
   const settings = {
     className: styles.slider,
@@ -15,28 +15,28 @@ const ProductImages = ({ product }) => {
         <img src={product.imgs[i].src} alt="" className={styles.carrousel} />
       );
     },
-    appendDots: dots => <ul>{dots}</ul>,
+    appendDots: (dots) => <ul>{dots}</ul>,
     dotsClass: `slick-dots slick-thumb ${styles.slick_dots}`,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          dotsClass: 'slick-dots slick-thumb',
-          customPaging: i => <button>{i + 1}</button>,
-          appendDots: dots => <ul>{dots}</ul>,
-        }
-      }
-    ]
-  }
+          dotsClass: "slick-dots slick-thumb",
+          customPaging: (i) => <button>{i + 1}</button>,
+          appendDots: (dots) => <ul>{dots}</ul>,
+        },
+      },
+    ],
+  };
   return (
-    <Slider {...settings} >
+    <Slider {...settings}>
       {product.imgs.map((img) => (
         <picture key={img.id} className={styles.slider_item}>
-          <img src={img.src} alt="" />
+          <img src={img.src} alt={`${product.name} ${img.id}`} />
         </picture>
       ))}
     </Slider>
-  )
-}
+  );
+};
 
-export default ProductImages
+export default ProductImages;
