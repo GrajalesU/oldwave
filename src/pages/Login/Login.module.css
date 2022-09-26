@@ -1,0 +1,77 @@
+.login {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.login_ow_logo {
+  height: 68px;
+  width: 62px;
+}
+
+.login_title_group {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login_title {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.login_description {
+  display: flex;
+  color: #787878;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.login_description_decoration {
+  min-width: 60px;
+  width: 20%;
+  border-bottom: 1px solid #787878;
+}
+.login_description_text {
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-align: left;
+  text-align: center;
+}
+.login_btns {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  width: 60%;
+  gap: 20%;
+}
+
+.login_google_btn {
+  background-color: #fff;
+  width: 40%;
+  height: 60px;
+  border-radius: 5px;
+  border: 1px solid #0000000d;
+  box-shadow: 0px 4px 4px 0px #0000001a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_back_btn {
+  background-color: var(--primary-color);
+  height: 60px;
+  width: 40%;
+  border-radius: 5px;
+  border: 1px solid #0000000d;
+  box-shadow: 0px 4px 4px 0px #0000001a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
