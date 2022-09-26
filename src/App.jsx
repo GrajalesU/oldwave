@@ -11,6 +11,7 @@ import "./App.css";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/search/:query" element={<Search />} />
           <Route path="/product/:id/*" element={<ProductDetail />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>
