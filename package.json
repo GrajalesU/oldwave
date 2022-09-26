@@ -50,6 +50,7 @@
     ],
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy",
+      "\\.(png|jpg)$": "<rootDir>/src/utils/fileTransformer.js",
       "^.+\\.svg$": "jest-svg-transformer"
     },
     "transform": {
