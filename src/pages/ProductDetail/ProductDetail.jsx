@@ -8,8 +8,6 @@ import styles from "./ProductDetail.module.css";
 import { getProduct } from "../../utils/api";
 
 const ProductDetail = () => {
-  //const img_product = product.img.map(img => img.src) //[src,src,src]
-
   const [product, setProduct] = useState();
 
   const { id } = useParams();
