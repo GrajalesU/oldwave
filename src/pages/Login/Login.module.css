@@ -1,5 +1,6 @@
 .login {
-  min-height: 80vh;
+  height: 100%;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,13 +36,12 @@
 
 .login_description_decoration {
   min-width: 60px;
-  width: 20%;
+  width: 10%;
   border-bottom: 1px solid #787878;
 }
 .login_description_text {
   font-weight: 500;
   letter-spacing: 0em;
-  text-align: left;
   text-align: center;
 }
 .login_btns {
@@ -74,4 +74,70 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .container {
+    max-width: 100%;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .login {
+    background: var(--primary-color);
+    width: 100%;
+  }
+
+  .login_title {
+    color: #fff;
+  }
+
+  .login_description {
+    color: #fff;
+  }
+
+  .login_img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .login_description_decoration {
+    border-color: #fff;
+    width: 20%;
+  }
+
+  .login_btns {
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .login_google_btn,
+  .login_back_btn {
+    width: 90%;
+    max-width: 340px;
+    justify-content: left;
+    gap: 30px;
+    color: #787878;
+    font-size: 16px;
+    text-align: center;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .login_google_btn span,
+  .login_back_btn span {
+    position: absolute;
+    width: 100%;
+  }
+
+  .login_back_btn {
+    background-color: #fff;
+  }
 }
