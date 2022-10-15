@@ -118,6 +118,12 @@
     align-items: center;
   }
 
+  .login_google_btn:hover,
+  .login_back_btn:hover {
+    opacity: 0.9;
+    color: #000;
+  }
+
   .login_google_btn,
   .login_back_btn {
     width: 90%;
@@ -135,6 +141,7 @@
   .login_back_btn span {
     position: absolute;
     width: 100%;
+    z-index: 1;
   }
 
   .login_back_btn {
