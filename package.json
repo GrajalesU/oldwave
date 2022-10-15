@@ -24,7 +24,8 @@
     "react-select": "^5.4.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "swiper": "^8.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
@@ -56,7 +57,11 @@
       "^.+\\.svg$": "jest-svg-transformer"
     },
     "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    }
+      "^.+\\.(js|jsx)?$": "babel-jest",
+      "^.+\\.(css)$": "<rootDir>/src/utils/fileTransformer.js"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!swiper|ssr-window|dom7)"
+    ]
   }
 }
