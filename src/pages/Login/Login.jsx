@@ -6,7 +6,7 @@ import LoginImg from "../../assets/images/login.svg";
 import styles from "./Login.module.css";
 import useBreakpoint from "../../hooks/useBreakpoints";
 import { useGoogleLogin } from "@react-oauth/google";
-import { saveUser } from "../../utils/saveUser";
+import { saveUser } from "../../utils/user";
 
 const Login = () => {
   const breakpoint = useBreakpoint();

@@ -1,4 +1,5 @@
-import {getUser} from "./getUser";
+import { getUser, saveUser } from "./user";
+const token = "ya29";
 
 global.fetch = jest.fn(() =>
   Promise.resolve({
@@ -17,11 +18,34 @@ global.fetch = jest.fn(() =>
   })
 );
 
-const token =
-  "ya29.a0Aa4xrXOKdeNmgjbYPi_hjojkyC6LEO_H_cg38p6f3O69eqx4BqgY7YDMh3seRErOEuq2TYRlesUucrmKUkCDgfdNdICiLCFeE8osH6Ar_sWn4VW8X7dkADQNW4PGeMMzGUhKfm0tAZUs4Plqu9THDbZBZsxpaCgYKATASARMSFQEjDvL9ZkgkJ1E60MDPxxfJtVeMaw0163";
+const localStorageMock = (function () {
+  var store = {};
+  return {
+    getItem: function (key) {
+      return store[key];
+    },
+    setItem: function (key, value) {
+      store[key] = value.toString();
+    },
+    clear: function () {
+      store = {};
+    },
+    removeItem: function (key) {
+      delete store[key];
+    },
+  };
+})();
+
+Object.defineProperty(window, "localStorage", { value: localStorageMock });
 
 beforeEach(() => {
   fetch.mockClear();
+});
+
+describe("save user on localStorage", () => {
+  test("set user", async () => {
+    saveUser(1);
+  });
 });
 
 describe("get google user", () => {
