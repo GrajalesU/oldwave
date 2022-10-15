@@ -6,6 +6,7 @@ import ProductImages from "../../components/ProductImages/ProductImages";
 
 import styles from "./ProductDetail.module.css";
 import { getProduct } from "../../utils/api";
+import Carrousel from "../../components/Carrousel/Carrousel";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState();
@@ -21,8 +22,9 @@ const ProductDetail = () => {
   return (
     product && (
       <div className={styles.container}>
-        <section className={styles.section}>
-          {product.imgs && <ProductImages product={product} />}
+        <section className={styles.carrousel}>
+          {/* {product.imgs && <ProductImages product={product} />} */}
+          {product.imgs && <Carrousel imgs={product.imgs} />}
         </section>
         <section className={styles.product_detail}>
           <small className={styles.product_detail_able}>Disponible</small>
@@ -45,7 +47,7 @@ const ProductDetail = () => {
             <span className={styles.product_reseller_name}>
               {product.reseller}
             </span>
-            <span className={styles.produc_reseller_rating}>
+            <span className={styles.product_reseller_rating}>
               {" "}
               {product.reseller_rating} ⭐
             </span>
