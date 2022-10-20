@@ -18,10 +18,13 @@ const ProductCard = ({
   const goToProduct = () => {
     navigate("/product/" + id + "/" + name);
   };
-
   return (
     <article className={styles.box}>
-      <figure className={styles.figure} onClick={goToProduct}>
+      <figure
+        data-testid="card-element"
+        className={styles.figure}
+        onClick={goToProduct}
+      >
         <img
           className={styles.image}
           alt={`Imagen de ${name}`}
