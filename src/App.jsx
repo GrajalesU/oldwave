@@ -14,6 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Login from "./pages/Login/Login";
 import { UserProvider } from "./context/user";
+import Orders from "./pages/Orders/Orders";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/search/:query" element={<Search />} />
               <Route path="/product/:id/*" element={<ProductDetail />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/orders" element={<Orders />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Layout>
