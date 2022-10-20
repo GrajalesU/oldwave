@@ -22,7 +22,6 @@ const Login = () => {
 
   const saveUser = async (token) => {
     const { name, picture, email } = await getUser(token);
-    console.log({ name, picture, email });
     dispatchUser({ type: "login", value: { name, picture, email } });
   };
 
