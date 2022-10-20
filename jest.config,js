@@ -1,0 +1,8 @@
+module.exports = async () => {
+  return {
+    transform: {
+      "^.+\\.jsx?$": "babel-jest",
+      "^.+\\.svg$": "jest-svg-transformer",
+    },
+  };
+};
