@@ -1,0 +1,48 @@
+.orders {
+  background: #f8f8f8;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.ordersTitle {
+  text-align: center;
+  font-size: 36px;
+  font-weight: medium;
+}
+
+.ordersSearch {
+  background: #ebebeb;
+  padding: 7px;
+  width: 95%;
+  max-width: 500px;
+  margin-inline: auto;
+  border-radius: 15px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.ordersSearchIcon {
+  filter: grayscale(100%);
+}
+
+.ordersSearchInput {
+  background: transparent;
+  border: 0;
+  outline: none;
+  width: 85%;
+}
+
+@media (min-width: 600px){
+  .ordersTitle{
+    text-align: left;
+    margin-inline-start: 2.5%;
+    padding-block: 30px;
+  }
+  .ordersSearch{
+    margin-inline-start: 2.5%;
+  }
+}
+
+
