@@ -6,10 +6,29 @@ import LoginImg from "../../assets/images/login.svg";
 import styles from "./Login.module.css";
 import useBreakpoint from "../../hooks/useBreakpoints";
 import { useGoogleLogin } from "@react-oauth/google";
-import { saveUser } from "../../utils/user";
-
+import { getUser } from "../../utils/user";
+import { useDispatch, useUser } from "../../context/user";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 const Login = () => {
   const breakpoint = useBreakpoint();
+  const dispatchUser = useDispatch();
+  const user = useUser();
+  const navigation = useNavigate();
+
+  const redirectToHome = () => {
+    navigation("/");
+  };
+
+  const saveUser = async (token) => {
+    const { name, picture, email } = await getUser(token);
+    console.log({ name, picture, email });
+    dispatchUser({ type: "login", value: { name, picture, email } });
+  };
+
+  useEffect(() => {
+    if (user.name) navigation("/");
+  }, [user]);
 
   const login = useGoogleLogin({
     onSuccess: saveUser,
@@ -47,7 +66,7 @@ const Login = () => {
             )}
           </button>
 
-          <button className={styles.login_back_btn}>
+          <button className={styles.login_back_btn} onClick={redirectToHome}>
             <img
               src={
                 breakpoint.lg || breakpoint.xl ? BackArrowDesktop : BackArrow
