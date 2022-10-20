@@ -41,7 +41,7 @@ function SearchBar({ onSearch: handleSearch }) {
         <img
           className={styles.search_icon}
           src={Search}
-          alt="Icono buscar"
+          alt="Icono de buscar"
         ></img>
         <input
           className={styles.search_input}
@@ -56,10 +56,15 @@ function SearchBar({ onSearch: handleSearch }) {
           isSearchable={false}
           placeholder="Todas las categorías"
           components={{ IndicatorSeparator: null }}
+          data-testid="select-element"
         />
       </div>
 
-      <button className={styles.search_button} onClick={onSearch}>
+      <button
+        className={styles.search_button}
+        onClick={onSearch}
+        data-testid="search-element"
+      >
         Buscar
       </button>
       <div className={styles.filter}>
