@@ -1,0 +1,151 @@
+.login {
+  height: 100%;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.login_ow_logo {
+  height: 68px;
+  width: 62px;
+}
+
+.login_title_group {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login_title {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.login_description {
+  display: flex;
+  color: #787878;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.login_description_decoration {
+  min-width: 60px;
+  width: 10%;
+  border-bottom: 1px solid #787878;
+}
+.login_description_text {
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.login_btns {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  width: 60%;
+  gap: 20%;
+}
+
+.login_google_btn {
+  background-color: #fff;
+  width: 40%;
+  height: 60px;
+  border-radius: 5px;
+  border: 1px solid #0000000d;
+  box-shadow: 0px 4px 4px 0px #0000001a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_back_btn {
+  background-color: var(--primary-color);
+  height: 60px;
+  width: 40%;
+  border-radius: 5px;
+  border: 1px solid #0000000d;
+  box-shadow: 0px 4px 4px 0px #0000001a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .container {
+    max-width: 100%;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .login {
+    background: var(--primary-color);
+    width: 100%;
+  }
+
+  .login_title {
+    color: #fff;
+  }
+
+  .login_description {
+    color: #fff;
+  }
+
+  .login_img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .login_description_decoration {
+    border-color: #fff;
+    width: 20%;
+  }
+
+  .login_btns {
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .login_google_btn:hover,
+  .login_back_btn:hover {
+    opacity: 0.9;
+    color: #000;
+  }
+
+  .login_google_btn,
+  .login_back_btn {
+    width: 90%;
+    max-width: 340px;
+    justify-content: left;
+    gap: 30px;
+    color: #787878;
+    font-size: 16px;
+    text-align: center;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .login_google_btn span,
+  .login_back_btn span {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .login_back_btn {
+    background-color: #fff;
+  }
+}

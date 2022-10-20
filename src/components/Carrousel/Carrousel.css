@@ -1,0 +1,46 @@
+.carrousel{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  column-gap:10px;
+}
+
+.carrouselPrincipal{
+  width: 80%;
+  height: 100%;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.carrouselPrincipal .swiper-wrapper{
+  padding-inline-start: 0;
+  margin: 0;
+}
+
+
+.carrouselPrincipal .swiper-wrapper .swiper-slide img{
+  width: 100%;
+  height: 70vh;
+  object-fit: contain;
+
+}
+.swiper-wrapper{
+list-style-type: none;
+}
+
+.carrouselThumbs{
+  height: 70vh;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.carrouselThumbs .swiper-wrapper .swiper-slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

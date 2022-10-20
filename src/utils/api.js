@@ -1,7 +1,11 @@
-export const getProduct = (id) => {
-  return fetch("https://oldwave-backend.herokuapp.com/api/product/" + id)
-    .then((response) => response.json())
-    .then((data) => {
-      return data[0];
-    });
+export const getProduct = async (id) => {
+  try {
+    const response = await fetch(
+      "https://oldwave-backend.herokuapp.com/api/product/" + id
+    );
+    const result = await response.json();
+    return result[0];
+  } catch (e) {
+    return null;
+  }
 };

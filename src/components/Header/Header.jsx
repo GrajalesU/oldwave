@@ -3,9 +3,17 @@ import styles from "./Header.module.css";
 import Logo from "../../assets/oldwave-logo-horizontal.png";
 import User from "../../assets/login-icon.svg";
 import Shopping_bag from "../../assets/carrito.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUser, useDispatch } from "../../context/user";
 
 function Header() {
+  const user = useUser();
+  const userDispatch = useDispatch();
+  const navigation = useNavigate();
+  const handleAccount = () => {
+    if (!user.name) return navigation("/login");
+    return userDispatch({ type: "logout" });
+  };
   return (
     <div className={styles.header}>
       <div className={styles.header_begin}>
@@ -27,8 +35,8 @@ function Header() {
         </Link>
       </div>
       <div className={styles.header_end}>
-        <button className={styles.header_register}>
-          Regístrate o inicia sesión
+        <button className={styles.header_register} onClick={handleAccount}>
+          {user.name ? "Cerrar sesión" : "Regístrate o inicia sesión"}
         </button>
         <img
           className={cn(
@@ -36,7 +44,7 @@ function Header() {
             styles.header_icons,
             styles.header_user
           )}
-          src={User}
+          src={user.picture || User}
           alt="Icono de login"
         ></img>
         <img
