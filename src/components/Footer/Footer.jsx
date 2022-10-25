@@ -66,22 +66,22 @@ const Footer = () => {
       </div>
       <div className={styles.infoSection}>
         <div className={styles.allInformationAndLinks}>
-          <img src={OldWave} alt="OldWave icon" height="90px" width="122px"/>
+          <img src={OldWave} alt="OldWave icon" height="90px" width="122px" />
           <div>
             <p className={styles.textSpan}>Oldwave</p>
-            <p>¿Quienes somos?</p>
-            <p>Nuestras tiendas</p>
+            <p className={styles.text_links}>¿Quienes somos?</p>
+            <p className={styles.text_links}>Nuestras tiendas</p>
           </div>
           <div>
             <p className={styles.textSpan}>Links de interés</p>
-            <p>Preguntas frecuentes</p>
-            <p>Términos y condiciones</p>
-            <p>Políticas de devolucines</p>
+            <p className={styles.text_links}>Preguntas frecuentes</p>
+            <p className={styles.text_links}>Términos y condiciones</p>
+            <p className={styles.text_links}>Políticas de devolucines</p>
           </div>
           <div>
             <p className={styles.textSpan}>Contácto</p>
-            <p>servicioalcliente@oldwave.co</p>
-            <p>Telefono: 3161924</p>
+            <p className={styles.text_links}>servicioalcliente@oldwave.co</p>
+            <p className={styles.text_links}>Telefono: 3161924</p>
             <div>
               <p className={styles.textSpan}>Redes Sociales</p>
               <img
