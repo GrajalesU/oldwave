@@ -1,6 +1,10 @@
 .icon {
-  font-size: 36px;
+  font-size: 52px;
   margin-bottom: 3px;
+}
+
+.icon:hover * {
+  fill: #772ce8;
 }
 
 .container {
@@ -8,12 +12,19 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 5px;
+  padding: 15px;
+  margin: 10px;
   word-break: break-all;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.container:hover {
+  color: #772ce8;
+  box-shadow: #772ce8 0px 0px 10px;
+  border-radius: 10px;
 }
 
 .container span {

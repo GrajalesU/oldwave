@@ -4,8 +4,11 @@ import styles from "./CategoriesCarousel.module.css";
 function CategoriesCarousel({ icons, infinite = true }) {
   const settings = {
     dots: true,
+    focusOnSelect: true,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
     infinite,
-    speed: 500,
     slidesToShow: 9,
     slidesToScroll: 9,
     initialSlide: 0,
