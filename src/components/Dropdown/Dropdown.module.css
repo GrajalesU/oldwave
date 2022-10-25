@@ -144,6 +144,21 @@
   color: var(--primary-color);
 }
 
+.advice_btn {
+  padding: 7px 22px;
+  background: #fff;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 12px;
+  border: 1px solid var(--primary-color);
+  border-radius: 20px;
+}
+
+.advice_btn:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--primary-color);
+}
 .dropdown_btn {
   margin-right: 15px;
   padding-inline: 10px;
