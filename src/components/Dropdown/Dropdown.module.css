@@ -1,0 +1,178 @@
+.dropdown {
+  position: absolute;
+  /* display: none; */
+  background: #fff;
+  top: 100%;
+  width: 90%;
+  margin-inline: auto;
+  z-index: 3;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-weight: 600;
+}
+
+.dropdown_elements {
+  display: flex;
+  color: #5c5e64;
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+
+.title {
+  color: var(--primary-color);
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-block: 10px;
+}
+
+.list {
+  list-style: none;
+  font-size: 13px;
+}
+
+.categories {
+  padding-left: 20px;
+  flex-grow: 1;
+}
+
+.categories_list_element {
+  margin-bottom: 4px;
+}
+
+.categories_list_element span {
+  color: #c3c5cb;
+  margin-left: 10px;
+}
+
+.products {
+  margin-inline: 20px;
+  border-inline: 1px solid #c5d3dd;
+  padding-left: 30px;
+  flex-grow: 1;
+}
+
+.product {
+  display: flex;
+  margin-bottom: 7px;
+}
+
+.product_detail {
+  display: flex;
+  flex-direction: column;
+  margin-left: 18px;
+}
+
+.product_type {
+  clip-path: polygon(100% 0%, 100% 49%, 100% 100%, 10% 100%, 0% 50%, 10% 0%);
+  width: 66px;
+  margin-bottom: 4px;
+}
+
+.product_type small {
+  display: block;
+  text-align: center;
+  color: #fff;
+  font-size: 7px;
+  font-weight: bold;
+  padding-block: 2px;
+}
+
+.product_name {
+  font-size: 12px;
+}
+
+.product_price {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.results {
+  padding-left: 10px;
+  flex-grow: 1;
+}
+
+.advice {
+  padding-left: 10px;
+  border-radius: 20px;
+  height: 202px;
+  min-width: 340px;
+  background: #f4f6fa 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  flex-grow: 2;
+  display: flex;
+  margin-right: 40px;
+  margin-left: 10px;
+}
+
+.advice_img {
+  position: relative;
+}
+
+.advice_element {
+  width: 50%;
+  display: flex;
+}
+
+.advice_img_principal {
+  position: absolute;
+  top: 5%;
+}
+
+.advice_img_discount {
+  position: absolute;
+  top: 30%;
+}
+
+.advice_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.advice_title {
+  display: block;
+  width: 120px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.advice_price {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.dropdown_btn {
+  margin-right: 15px;
+  padding-inline: 10px;
+  background: #fff;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border: none;
+  border-left: 1px solid var(--primary-color);
+}
+
+.dropdown_btn:hover {
+  cursor: pointer;
+}
+
+.background {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background: rgb(197, 211, 221, 0.5);
+  z-index: 2;
+}
+
+@media (max-width: 1100px) {
+  .dropdown_btn {
+    display: none;
+  }
+}
