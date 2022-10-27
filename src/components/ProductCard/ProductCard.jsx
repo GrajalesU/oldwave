@@ -3,6 +3,7 @@ import styles from "./ProductCard.module.css";
 import { formatPrice } from "../../utils/numbers";
 import cn from "classnames";
 import { useNavigate } from "react-router";
+import { useShoppingCart } from "use-shopping-cart";
 
 const ProductCard = ({
   id,
@@ -18,6 +19,7 @@ const ProductCard = ({
   const goToProduct = () => {
     navigate("/product/" + id + "/" + name);
   };
+  const { addItem } = useShoppingCart();
   return (
     <article className={styles.box}>
       <figure
@@ -42,7 +44,21 @@ const ProductCard = ({
         <span className={styles.brand}>{brand}</span>
         <span className={styles.city}>{city}</span>
         <span className={styles.price}>{formatPrice(price)}</span>
-        <button className={cn("button", styles.button)}>
+        <button
+          className={cn("button", styles.button)}
+          onClick={() => {
+            addItem({
+              id,
+              name,
+              brand,
+              price,
+              thumbnail,
+              city,
+              reseller,
+              reseller_rating,
+            });
+          }}
+        >
           Agregar al carrito
         </button>
       </div>

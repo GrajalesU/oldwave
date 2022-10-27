@@ -12,28 +12,36 @@ import "./App.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { CartProvider } from "use-shopping-cart";
 import Login from "./pages/Login/Login";
 import { UserProvider } from "./context/user";
 import Orders from "./pages/Orders/Orders";
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId="386602516499-pt5f8m9f2dm57lisi3utvtdpdl7s6fhh.apps.googleusercontent.com">
-      <UserProvider>
-        <BrowserRouter>
-          <Layout>
-            <Routes>
-              <Route index element={<Home />} />
-              <Route path="/search/:query" element={<Search />} />
-              <Route path="/product/:id/*" element={<ProductDetail />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/orders" element={<Orders />} />
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
-          </Layout>
-        </BrowserRouter>
-      </UserProvider>
-    </GoogleOAuthProvider>
+    <CartProvider
+      mode="payment"
+      currency="COP"
+      cartMode="checkout-session"
+      stripe="pk_test_51Lxb7jAiTaegeo6YvSVttYyxnrtpU0nd075Km1knJ6HhbxLYRkiVXlIKqSJSyuWoYAFBi5GqUefwQzLsAHX8fvKS00vmAfPhCE"
+    >
+      <GoogleOAuthProvider clientId="386602516499-pt5f8m9f2dm57lisi3utvtdpdl7s6fhh.apps.googleusercontent.com">
+        <UserProvider>
+          <BrowserRouter>
+            <Layout>
+              <Routes>
+                <Route index element={<Home />} />
+                <Route path="/search/:query" element={<Search />} />
+                <Route path="/product/:id/*" element={<ProductDetail />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/orders" element={<Orders />} />
+                <Route path="*" element={<Navigate to="/" />} />
+              </Routes>
+            </Layout>
+          </BrowserRouter>
+        </UserProvider>
+      </GoogleOAuthProvider>
+    </CartProvider>
   );
 }
 

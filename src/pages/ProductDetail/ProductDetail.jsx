@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { formatPrice } from "../../utils/numbers";
+import cn from "classnames";
+import { useShoppingCart } from "use-shopping-cart";
 
 import ProductImages from "../../components/ProductImages/ProductImages";
 
@@ -10,6 +12,7 @@ import Carrousel from "../../components/Carrousel/Carrousel";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState();
+  const { addItem } = useShoppingCart();
 
   const { id } = useParams();
 
@@ -39,6 +42,15 @@ const ProductDetail = () => {
             {formatPrice(product.price)}
           </span>
           <span>{product.city}</span>
+          <button
+            className={cn("button")}
+            onClick={() => {
+              console.log(product);
+              addItem(product);
+            }}
+          >
+            Agregar al carrito
+          </button>
 
           <div className={styles.product_reseller}>
             <picture className={styles.product_reseller_logo}>
