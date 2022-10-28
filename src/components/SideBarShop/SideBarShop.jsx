@@ -39,6 +39,7 @@ function SideBarShop({ active }) {
               price={currentProduct.price}
               thumbnail={currentProduct.thumbnail}
               quantity={currentProduct.quantity}
+              stock={currentProduct.stock}
             />
           );
         })}
