@@ -13,9 +13,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { CartProvider } from "use-shopping-cart";
+import { ToastContainer } from "react-toastify";
 import Login from "./pages/Login/Login";
 import { UserProvider } from "./context/user";
 import Orders from "./pages/Orders/Orders";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
       stripe="pk_test_51Lxb7jAiTaegeo6YvSVttYyxnrtpU0nd075Km1knJ6HhbxLYRkiVXlIKqSJSyuWoYAFBi5GqUefwQzLsAHX8fvKS00vmAfPhCE"
     >
       <GoogleOAuthProvider clientId="386602516499-pt5f8m9f2dm57lisi3utvtdpdl7s6fhh.apps.googleusercontent.com">
+        <ToastContainer position="bottom-left" />
         <UserProvider>
           <BrowserRouter>
             <Layout>
