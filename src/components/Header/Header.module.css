@@ -38,8 +38,9 @@
 
 .header_user {
   font-size: 30px;
-  width: 50px;
-  padding-right: 15px;
+  width: 40px;
+  margin-right: 15px;
+  border-radius: 100%;
 }
 
 .header_shopping_bag {
