@@ -5,6 +5,8 @@ import User from "../../assets/login-icon.svg";
 import Shopping_bag from "../../assets/carrito.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser, useDispatch } from "../../context/user";
+import { useState } from "react";
+import SideBarShop from "../SideBarShop/SideBarShop";
 
 function Header() {
   const user = useUser();
@@ -14,6 +16,9 @@ function Header() {
     if (!user.name) return navigation("/login");
     return userDispatch({ type: "logout" });
   };
+  const [sidebar, setSidebar] = useState(false);
+  const showSideBar = () => setSidebar(!sidebar);
+
   return (
     <div className={styles.header}>
       <div className={styles.header_begin}>
@@ -56,7 +61,27 @@ function Header() {
           )}
           src={Shopping_bag}
           alt="Icono de carrito de compras"
+          onClick={showSideBar}
         ></img>
+        <div className={styles.header_sideBarShop}>
+          {sidebar ? (
+            <>
+              <div className="">
+                <SideBarShop
+                  className={styles.header_sideBarShop_component}
+                  active={setSidebar}
+                />
+              </div>
+              <div
+                className={styles.header_sideBarShop_bottom}
+                onClick={showSideBar}
+              />
+            </>
+          ) : null}
+        </div>
+        <div className={styles.header_sideBarShop}>
+          <div className="" />
+        </div>
       </div>
     </div>
   );
