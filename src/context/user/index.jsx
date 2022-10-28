@@ -7,6 +7,7 @@ const USER_DEFAULT = {
   name: "",
   picture: "",
   email: "",
+  sub: undefined,
 };
 
 const localUser = window.localStorage.getItem("user");

@@ -10,6 +10,7 @@ import { getUser } from "../../utils/user";
 import { useDispatch, useUser } from "../../context/user";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { handleUser } from "../../utils/api";
 const Login = () => {
   const breakpoint = useBreakpoint();
   const dispatchUser = useDispatch();
@@ -21,8 +22,10 @@ const Login = () => {
   };
 
   const saveUser = async (token) => {
-    const { name, picture, email } = await getUser(token);
-    dispatchUser({ type: "login", value: { name, picture, email } });
+    const { name, picture, email, given_name, family_name, sub } =
+      await getUser(token);
+    await handleUser(sub, email, given_name, family_name);
+    dispatchUser({ type: "login", value: { name, picture, email, sub } });
   };
 
   useEffect(() => {
