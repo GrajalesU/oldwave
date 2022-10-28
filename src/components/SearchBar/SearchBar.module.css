@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+  box-shadow: 0px 1px 1px #00000029;
 }
 
 .search_bar {
@@ -49,7 +50,8 @@ div.select {
   }
 }
 
-.search_button {
+.search_button,
+.filter_button {
   background-color: var(--primary-color);
   border: 1px solid white;
   color: white;
@@ -58,7 +60,8 @@ div.select {
   margin-right: 10px;
 }
 
-.search_button:hover {
+.search_button:hover,
+.filter_button:hover {
   background-color: #8748e5;
 }
 
@@ -72,12 +75,12 @@ div.select {
   margin-right: 70px;
 }
 
-.filter_button {
+/* .filter_button {
   background-color: var(--primary-color);
   border: 1px solid transparent;
   color: white;
   border-radius: 19px;
-}
+} */
 
 @media (max-width: 800px) {
   .search_bar {
