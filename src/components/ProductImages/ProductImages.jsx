@@ -1,5 +1,6 @@
 import styles from "./ProductImages.module.css";
 import Slider from "react-slick";
+import { addButtonPaging, addUlTag } from "./utils/transformSlickElements";
 const ProductImages = ({ product }) => {
   const settings = {
     className: styles.slider,
@@ -22,8 +23,8 @@ const ProductImages = ({ product }) => {
         breakpoint: 1024,
         settings: {
           dotsClass: "slick-dots slick-thumb",
-          customPaging: (i) => <button>{i + 1}</button>,
-          appendDots: (dots) => <ul>{dots}</ul>,
+          customPaging: addButtonPaging,
+          appendDots: addUlTag,
         },
       },
     ],
