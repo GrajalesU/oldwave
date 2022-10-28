@@ -15,6 +15,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import Login from "./pages/Login/Login";
 import { UserProvider } from "./context/user";
 import Orders from "./pages/Orders/Orders";
+import ShoppingResult from "./pages/ShoppingResult/ShoppingResult";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
               <Route path="/product/:id/*" element={<ProductDetail />} />
               <Route path="/login" element={<Login />} />
               <Route path="/orders" element={<Orders />} />
+              <Route path="/thanks" element={<ShoppingResult />} />
+              <Route path="/purchaseError" element={<ShoppingResult Error />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Layout>
