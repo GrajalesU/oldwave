@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import { formatPrice } from "../../utils/numbers";
 import cn from "classnames";
 import { useShoppingCart } from "use-shopping-cart";
-
-import ProductImages from "../../components/ProductImages/ProductImages";
+import { toast } from "react-toastify";
 
 import styles from "./ProductDetail.module.css";
 import { getProduct } from "../../utils/api";
@@ -12,7 +11,7 @@ import Carrousel from "../../components/Carrousel/Carrousel";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState();
-  const { addItem } = useShoppingCart();
+  const { addItem, cartDetails } = useShoppingCart();
 
   const { id } = useParams();
 
@@ -21,6 +20,10 @@ const ProductDetail = () => {
       setProduct(currentProduct);
     });
   }, []);
+
+  const currentStock = cartDetails[id]?.quantity
+    ? product?.stock - cartDetails[id]?.quantity
+    : product?.stock;
 
   return (
     product && (
@@ -42,15 +45,21 @@ const ProductDetail = () => {
             {formatPrice(product.price)}
           </span>
           <span>{product.city}</span>
-          <button
-            className={cn("button")}
-            onClick={() => {
-              console.log(product);
-              addItem(product);
-            }}
-          >
-            Agregar al carrito
-          </button>
+          {currentStock > 0 ? (
+            <button
+              className={cn("button")}
+              onClick={() => {
+                addItem(product);
+                toast.success("Se añadió el producto con éxito");
+              }}
+            >
+              Agregar al carrito
+            </button>
+          ) : (
+            <button className={cn("button", styles.disabled)} disabled>
+              Sin stock
+            </button>
+          )}
 
           <div className={styles.product_reseller}>
             <picture className={styles.product_reseller_logo}>

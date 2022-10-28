@@ -55,26 +55,32 @@
   right: 20px;
   color: grey;
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .sideBarShop_close_button:hover {
   border: solid 1px #9da1ad;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 650px) {
   .sideBarShop_container {
     width: 45%;
   }
 }
 
 .sideBarShop_products_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-block: 8px;
+  overflow-y: auto;
 }
 
 .sideBarShop_bottom_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   padding: 20px;
-  margin: 20px;
   background-color: white;
   border-radius: 4px;
 }
@@ -85,13 +91,11 @@
 
 .sideBarShop_total {
   color: #5c5e64;
-  margin-inline: 192px;
 }
 
 .sideBarShop_finalize_order_container {
   display: flex;
   justify-content: end;
-  margin: 20px;
 }
 
 .sideBarShop_finalize_order_button {
@@ -99,16 +103,13 @@
   height: 48px;
   align-items: center;
   font-weight: bold;
-  border-radius: 6px;
   cursor: pointer;
   background-color: #f4f6fa;
   border: 0;
   padding: 10px 5px 10px 5px;
-  position: absolute;
-  bottom: 25px;
-  right: 20px;
   color: #772ce8;
-  border-radius: 4px;
+  border-radius: 17px;
+  margin: 0px 20px 20px 0px;
 }
 
 .sideBarShop_finalize_order_button:hover {

@@ -74,6 +74,12 @@
   border-radius: inherit;
 }
 
+button.disabled,
+button.disabled:hover {
+  cursor: not-allowed;
+  background: gray;
+}
+
 @media (min-width: 1024px) {
   .container {
     flex-direction: row;

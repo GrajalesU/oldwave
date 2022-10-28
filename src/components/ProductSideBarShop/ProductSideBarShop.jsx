@@ -3,59 +3,61 @@ import styles from "./ProductSideBarShop.module.css";
 import cn from "classnames";
 import { useShoppingCart } from "use-shopping-cart";
 
-function ProductSideBarShop({ id, name, price, thumbnail, quantity }) {
-  const { incrementItem, decrementItem, removeItem } = useShoppingCart();
+function ProductSideBarShop({ id, name, price, thumbnail, quantity, stock }) {
+  const { incrementItem, decrementItem, removeItem, cartDetails } =
+    useShoppingCart();
   const deleteProduct = () => {
     removeItem(id);
   };
+
+  const currentStock = cartDetails[id]?.quantity
+    ? stock - cartDetails[id]?.quantity
+    : stock;
+
   const decrease = () => {
     decrementItem(id);
   };
+
   const increase = () => {
     incrementItem(id);
   };
   return (
-    <div className={styles.product_card}>
-      <div className={styles.product_card_container}>
-        <img className={styles.product_card_image} src={thumbnail} alt={name} />
-        <div className={styles.product_card_info}>
-          <h1 className={styles.product_card_title_name}>{name}</h1>
-          <div className={styles.product_card_container_text}>
-            <span className={styles.product_card_price}>
-              {formatPrice(price)}
-            </span>
-            <div className={styles.product_card_button_container}>
-              <button
-                className={styles.product_card_button_decrease}
-                type="button"
-                onClick={decrease}
-              >
-                -
-              </button>
-              <span className={styles.product_card_quantity}>{quantity}</span>
-              <button
-                className={styles.product_card_button_increase}
-                type="button"
-                onClick={increase}
-              >
-                +
-              </button>
-            </div>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <img className={styles.thumbnail} src={thumbnail} alt={name} />
+        <div className={styles.info}>
+          <h1 className={styles.title}>{name}</h1>
+          <span className={styles.price}>{formatPrice(price)}</span>
+          <div className={styles.quantity}>
+            <button
+              className={styles.decrease}
+              type="button"
+              onClick={decrease}
+            >
+              -
+            </button>
+            <span className={styles.quantity_value}>{quantity}</span>
+            <button
+              className={cn(styles.increase, {
+                [styles.disabled]: currentStock <= 0,
+              })}
+              type="button"
+              onClick={increase}
+              disabled={currentStock <= 0}
+            >
+              +
+            </button>
           </div>
+          {stock <= 0 && <span className={styles.out_stock}>Sin stock</span>}
         </div>
       </div>
-      <div className={styles.product_card_button_close_container}>
-        <span
-          className={cn(
-            "material-symbols-outlined",
-            styles.product_card_button_close
-          )}
-          type="button"
-          onClick={deleteProduct}
-        >
-          delete
-        </span>
-      </div>
+      <span
+        className={cn("material-symbols-outlined", styles.delete)}
+        type="button"
+        onClick={deleteProduct}
+      >
+        delete
+      </span>
     </div>
   );
 }

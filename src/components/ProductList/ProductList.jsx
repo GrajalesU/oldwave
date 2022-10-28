@@ -45,6 +45,7 @@ const ProductList = ({ products }) => {
                 city={product.city}
                 reseller={product.reseller}
                 reseller_rating={product.reseller_rating}
+                stock={product.stock}
               />
             </Grid>
           ))}
