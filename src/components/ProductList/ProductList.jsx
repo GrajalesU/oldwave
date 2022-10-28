@@ -34,7 +34,7 @@ const ProductList = ({ products }) => {
             <div>{products.length} productos</div>
             <div>Ordenar por relevancia</div>
           </div>
-          {products.map((product) => (
+          {products.map((product, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
               <ProductCard
                 id={product.id}
@@ -45,7 +45,6 @@ const ProductList = ({ products }) => {
                 city={product.city}
                 reseller={product.reseller}
                 reseller_rating={product.reseller_rating}
-                stock={product.stock}
               />
             </Grid>
           ))}

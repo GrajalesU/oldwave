@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 
+
 import styles from "./Accordion.module.css";
 
 function Accordion(props) {
@@ -19,22 +20,7 @@ function Accordion(props) {
         onClick={toggleAccordion}
       >
         <p className={styles.accordionTitle}>{props.title}</p>
-        {active ? (
-          <span
-            style={{ marginLeft: "20px" }}
-            className="material-symbols-outlined"
-          >
-            expand_less
-          </span>
-        ) : (
-          <span
-            style={{ marginLeft: "20px" }}
-            className="material-symbols-outlined"
-          >
-            expand_more
-          </span>
-        )}
-        {/* <span style={{ marginLeft: "20px" }}>{active ? `∧` : "V"}</span> */}
+        <span style={{ marginLeft: "20px" }}>{active ? `∧` : "V"}</span>
       </div>
       <div
         ref={content}

@@ -1,7 +1,6 @@
 .container {
   width: 100%;
   min-height: 85vh;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -14,8 +13,7 @@
   justify-content: center;
   align-items: left;
   gap: 2rem;
-  margin: 0 auto;
-  width: 80%;
+  margin: 0 15px;
 }
 
 .product_detail_able {
@@ -53,10 +51,9 @@
 .product_reseller {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: left;
   gap: 2rem;
   padding-left: 15px;
-  margin-bottom: 16px;
 }
 
 .product_reseller_logo {
@@ -74,20 +71,14 @@
   border-radius: inherit;
 }
 
-button.disabled,
-button.disabled:hover {
-  cursor: not-allowed;
-  background: gray;
-}
 
-@media (min-width: 1024px) {
+@media(min-width:1024px) {
   .container {
     flex-direction: row;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1024px;
     gap: 0;
     margin: 0 auto;
-    margin-top: 30px;
   }
 
   .section {
@@ -96,26 +87,13 @@ button.disabled:hover {
     margin: 0;
     gap: 0;
     padding: 20% 0;
-  }
 
-  .carrousel {
-    width: 70%;
   }
 
   .product_detail {
     width: 50%;
+    margin: 0;
     gap: 5px;
-    margin-left: 10px;
-    padding-left: 20px;
-    justify-content: flex-start;
-    gap: 40px;
-  }
-
-  .product_detail_price {
-    align-self: center;
-  }
-
-  .product_reseller {
-    gap: 10px;
+    padding: 30px;
   }
 }

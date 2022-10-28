@@ -1,8 +1,10 @@
+import cn from "classnames";
+import Select from "react-select";
+
 import styles from "./SearchBar.module.css";
 import Search from "../../assets/icon-search-bar.svg";
 import Filter from "../../assets/icon-filter.svg";
 import { useState } from "react";
-import Dropdown from "../Dropdown/Dropdown";
 
 const options = [
   { value: "Carros", label: "Carros" },
@@ -34,34 +36,35 @@ function SearchBar({ onSearch: handleSearch }) {
   };
 
   return (
-    <div>
-      <div className={styles.search_box}>
-        <div className={styles.search_bar}>
-          <img
-            className={styles.search_icon}
-            src={Search}
-            alt="Icono de buscar"
-          ></img>
-          <input
-            className={styles.search_input}
-            placeholder="Estoy buscando..."
-            onChange={onChange}
-            onKeyDown={handleEnter}
-          ></input>
-          <Dropdown />
-        </div>
+    <div className={styles.search_box}>
+      <div className={styles.search_bar}>
+        <img
+          className={styles.search_icon}
+          src={Search}
+          alt="Icono buscar"
+        ></img>
+        <input
+          className={styles.search_input}
+          placeholder="Estoy buscando..."
+          onChange={onChange}
+          onKeyDown={handleEnter}
+        ></input>
+        <Select
+          options={options}
+          className={cn("select", styles.select)}
+          classNamePrefix="react-select"
+          isSearchable={false}
+          placeholder="Todas las categorías"
+          components={{ IndicatorSeparator: null }}
+        />
+      </div>
 
-        <button
-          className={styles.search_button}
-          onClick={onSearch}
-          data-testid="search-element"
-        >
-          Buscar
-        </button>
-        <div className={styles.filter}>
-          <img src={Filter} alt="Icono de filtro"></img>
-          <button className={styles.filter_button}>Filtros</button>
-        </div>
+      <button className={styles.search_button} onClick={onSearch}>
+        Buscar
+      </button>
+      <div className={styles.filter}>
+        <img src={Filter} alt="Icono de filtro"></img>
+        <button className={styles.filter_button}>Filtros</button>
       </div>
     </div>
   );
