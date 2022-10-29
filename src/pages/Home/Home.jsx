@@ -18,19 +18,25 @@ import Product2 from "../../assets/images/producto2.png";
 import Product3 from "../../assets/images/producto3.png";
 import Product4 from "../../assets/images/producto4.png";
 import RecentProductsSlider from "../../components/RecentProductsSlider/RecentProductsSlider";
+import { useNavigate } from "react-router-dom";
+import Spinner from "../../components/Spinner/Spinner";
+import { useEffect, useState } from "react";
 
 const HOME_BANNERS = [
   {
     title: "Banner Black Friday",
     url: Banner1,
+    name: "Camara",
   },
   {
     title: "Banner Ordenadores",
     url: Banner2,
+    name: "Computador",
   },
   {
     title: "Banner Bicicletas",
     url: Banner3,
+    name: "Bicicicleta",
   },
 ];
 
@@ -73,83 +79,41 @@ const HOME_CATEGORIES = [
   },
 ];
 
-const RECENT_PRODUCTS = [
-  {
-    brand: "Apple",
-    city: "Medellín",
-    description: "(128 Gb) - Negro",
-    id: 1,
-    name: "iPhone 11",
-    price: 2999900,
-    reseller: "Enrique Segoviano",
-    reseller_rating: 4.5,
-    thumbnail: "http://http2.mlstatic.com/D_990246-MLA46153276373_052021-I.jpg",
-  },
-  {
-    brand: "Apple",
-    city: "Medellín",
-    description: "128gb 4gb A15 Bionic Cámara 12mpx",
-    id: 2,
-    name: "iPhone 13",
-    price: 4249000,
-    reseller: "Enrique Segoviano",
-    reseller_rating: 4.5,
-    thumbnail: "http://http2.mlstatic.com/D_606189-MCO49963305245_052022-O.jpg",
-  },
-  {
-    brand: "Apple",
-    city: "Medellín",
-    description: "(64 Gb) - Negro",
-    id: 3,
-    name: "iPhone 12",
-    price: 3389900,
-    reseller: "Enrique Segoviano",
-    reseller_rating: 4.5,
-    thumbnail: "http://http2.mlstatic.com/D_732171-MLA46153583466_052021-I.jpg",
-  },
-  {
-    brand: "Apple",
-    city: "Medellín",
-    description: "(2da Generación) 128 Gb - Negro",
-    id: 4,
-    name: "iPhone SE",
-    price: 1409900,
-    reseller: "Enrique Segoviano",
-    reseller_rating: 4.5,
-    thumbnail: "http://http2.mlstatic.com/D_972908-MLA47681022795_092021-I.jpg",
-  },
-  {
-    brand: "Apple",
-    city: "Medellín",
-    description: "(64 Gb) - Negro",
-    id: 5,
-    name: "iPhone 12",
-    price: 3389900,
-    reseller: "Enrique Segoviano",
-    reseller_rating: 4.5,
-    thumbnail: "http://http2.mlstatic.com/D_732171-MLA46153583466_052021-I.jpg",
-  },
-  {
-    brand: "Apple",
-    city: "Medellín",
-    description: "(2da Generación) 128 Gb - Negro",
-    id: 6,
-    name: "iPhone SE",
-    price: 1409900,
-    reseller: "Enrique Segoviano",
-    reseller_rating: 4.5,
-    thumbnail: "http://http2.mlstatic.com/D_972908-MLA47681022795_092021-I.jpg",
-  },
-];
-
 function Home() {
+  const navigate = useNavigate();
+  const [recentProducts, setRecentProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const goToProduct = (category) => {
+    console.log(category);
+    navigate("/search/" + category);
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    fetch("https://oldwave-backend.herokuapp.com/api/products/getRecentProduct")
+      .then((response) => response.json())
+      .then((data) => {
+        setLoading(false);
+        setRecentProducts(data);
+      });
+  }, []);
+
+  if (loading) {
+    return <Spinner />;
+  }
+
   return (
     <div>
       <BannerSlider images={HOME_BANNERS} />
       <h2 className={styles.suggested_title}>¿Qué estás buscando hoy?</h2>
       <CategoriesCarousel icons={HOME_CATEGORIES} />
       <div className={styles.promotions_container}>
-        <img src={Banner2} alt="Imagen promocional de computadores" />
+        <img
+          src={Banner2}
+          alt="Imagen promocional de computadores"
+          onClick={() => goToProduct("computadores")}
+        />
         <div className={styles.promotions_product}>
           <img
             className={styles.promotions_image}
@@ -180,12 +144,16 @@ function Home() {
             alt="Imagen de iPad marca apple con descuento del 30%"
           />
         </div>
-        <img src={Banner3} alt="Imagen promocional de bicicletas" />
+        <img
+          src={Banner3}
+          alt="Imagen promocional de bicicletas"
+          onClick={() => goToProduct("bicicletas")}
+        />
       </div>
       <div className={styles.product_container}>
         <span className={styles.product_title}>Productos más recientes</span>
       </div>
-      <RecentProductsSlider Products={RECENT_PRODUCTS} />
+      <RecentProductsSlider Products={recentProducts} />
     </div>
   );
 }

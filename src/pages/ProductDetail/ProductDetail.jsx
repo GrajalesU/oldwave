@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { formatPrice } from "../../utils/numbers";
-import cn from "classnames";
 import { useShoppingCart } from "use-shopping-cart";
 import { toast } from "react-toastify";
+import cn from "classnames";
+
+import Carrousel from "../../components/Carrousel/Carrousel";
+import { getProduct } from "../../utils/api";
+import { formatPrice } from "../../utils/numbers";
 
 import styles from "./ProductDetail.module.css";
-import { getProduct } from "../../utils/api";
-import Carrousel from "../../components/Carrousel/Carrousel";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState();
   const { addItem, cartDetails } = useShoppingCart();
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -52,6 +52,7 @@ const ProductDetail = () => {
                 addItem(product);
                 toast.success("Se añadió el producto con éxito");
               }}
+              data-testid="add-to-cart"
             >
               Agregar al carrito
             </button>

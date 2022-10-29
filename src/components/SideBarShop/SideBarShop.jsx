@@ -63,6 +63,7 @@ function SideBarShop({ active }) {
             className={styles.sideBarShop_close_button}
             type="button"
             onClick={closeSidebar}
+            data-testid="close"
           >
             x
           </button>

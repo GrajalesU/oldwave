@@ -4,6 +4,17 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import ProductCard from "./ProductCard";
 import { MemoryRouter } from "react-router-dom";
 
+jest.mock("use-shopping-cart", () => {
+  return {
+    useShoppingCart: jest.fn(() => {
+      return {
+        addItem: jest.fn(),
+        cartDetails: {},
+      };
+    }),
+  };
+});
+
 describe("ProductCard component", () => {
   test("should render correctly", async () => {
     render(
@@ -19,6 +30,7 @@ describe("ProductCard component", () => {
           city={"Medellín"}
           reseller={"Enrique Segoviano"}
           reseller_rating={4.5}
+          stock={2}
         ></ProductCard>
       </MemoryRouter>
     );

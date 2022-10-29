@@ -6,13 +6,12 @@ import { useShoppingCart } from "use-shopping-cart";
 function ProductSideBarShop({ id, name, price, thumbnail, quantity, stock }) {
   const { incrementItem, decrementItem, removeItem, cartDetails } =
     useShoppingCart();
+
   const deleteProduct = () => {
     removeItem(id);
   };
 
-  const currentStock = cartDetails[id]?.quantity
-    ? stock - cartDetails[id]?.quantity
-    : stock;
+  const currentStock = quantity !== undefined ? stock - quantity : stock;
 
   const decrease = () => {
     decrementItem(id);
@@ -21,6 +20,7 @@ function ProductSideBarShop({ id, name, price, thumbnail, quantity, stock }) {
   const increase = () => {
     incrementItem(id);
   };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -33,6 +33,7 @@ function ProductSideBarShop({ id, name, price, thumbnail, quantity, stock }) {
               className={styles.decrease}
               type="button"
               onClick={decrease}
+              data-testid="decrease"
             >
               -
             </button>
@@ -44,6 +45,7 @@ function ProductSideBarShop({ id, name, price, thumbnail, quantity, stock }) {
               type="button"
               onClick={increase}
               disabled={currentStock <= 0}
+              data-testid="increase"
             >
               +
             </button>

@@ -1,7 +1,14 @@
 import Slider from "react-slick";
 import styles from "./CategoriesCarousel.module.css";
+import { useNavigate } from "react-router-dom";
 
 function CategoriesCarousel({ icons, infinite = true }) {
+  const navigate = useNavigate();
+
+  const goToProduct = (category) => {
+    navigate("/search/" + category);
+  };
+
   const settings = {
     dots: true,
     focusOnSelect: true,
@@ -44,7 +51,10 @@ function CategoriesCarousel({ icons, infinite = true }) {
       <Slider {...settings}>
         {icons.map(({ Icon, category }) => (
           <div key={category}>
-            <div className={styles.container}>
+            <div
+              className={styles.container}
+              onClick={() => goToProduct(category)}
+            >
               <Icon className={styles.icon} alt={category} />
               <span>{category}</span>
             </div>
