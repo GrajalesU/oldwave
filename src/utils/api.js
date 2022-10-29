@@ -50,3 +50,12 @@ export const addOrder = async (idUser, idProduct, quantity) => {
   const result = await response.json();
   return result;
 };
+
+export const getOrders = async (idUser) => {
+  const response = await fetch(
+    `https://oldwave-backend.herokuapp.com/api/orders/${idUser}`
+  );
+
+  const result = await response.json();
+  return result;
+};
