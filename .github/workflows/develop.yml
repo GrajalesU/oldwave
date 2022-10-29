@@ -19,7 +19,7 @@ jobs:
       - name: Run unit test
         run: npm test
       - name: Run e2e test
-        run: npm cypress:run
+        run: npm run cypress:run
       - name: Building project
         run: npm run build
       - name: Configure AWS Credentials
