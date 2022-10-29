@@ -17,7 +17,6 @@ describe("Oldwave", () => {
     cy.login();
     cy.reload();
     cy.contains("Cerrar sesión");
-    // cy.contains('Google').click();
   });
 
   it("User can search products", () => {
@@ -50,15 +49,15 @@ describe("Oldwave", () => {
     cy.contains("SUBTOTAL (0)");
   });
 
-  // it("User can buy products", () => {
-  //   cy.login();
-  //   cy.reload();
-  //   cy.get('input[placeholder="Estoy buscando..."]').type("Moto");
-  //   cy.contains("Buscar").click();
-  //   cy.contains("Agregar al carrito").click();
-  //   cy.get('img[alt="Icono de carrito de compras"').click();
-  //   cy.contains("FINALIZAR PEDIDO").click();
-  // });
+  it("User can buy products", () => {
+    cy.login();
+    cy.reload();
+    cy.get('input[placeholder="Estoy buscando..."]').type("Moto");
+    cy.contains("Buscar").click();
+    cy.contains("Agregar al carrito").click();
+    cy.get('img[alt="Icono de carrito de compras"').click();
+    cy.contains("FINALIZAR PEDIDO").click();
+  });
 
   it("User can see his orders", () => {
     cy.login();
