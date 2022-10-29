@@ -2,15 +2,55 @@ import styles from "./SideBarShop.module.css";
 import ProductSide from "../ProductSideBarShop/ProductSideBarShop";
 import { useShoppingCart } from "use-shopping-cart";
 import { formatPrice } from "../../utils/numbers";
+import { useUser } from "../../context/user";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { addOrder } from "../../utils/api";
 
 function SideBarShop({ active }) {
+  const user = useUser();
+  const navigate = useNavigate();
   const closeSidebar = () => {
     active(false);
   };
 
-  const { totalPrice, cartCount, cartDetails } = useShoppingCart();
+  const { totalPrice, cartCount, cartDetails, clearCart } = useShoppingCart();
 
   const cartItems = Object.keys(cartDetails).map((key) => cartDetails[key]);
+
+  const handlePurchase = async () => {
+    if (!user.sub) {
+      navigate("/login");
+      active(false);
+      toast.info("Debes de iniciar sesión para realizar la compra");
+    }
+    const products = cartItems.map(({ id, quantity }) => {
+      return {
+        id,
+        quantity,
+      };
+    });
+
+    let idProduct = [];
+    let quantity = [];
+
+    products.forEach((element) => {
+      idProduct.push(element.id);
+      quantity.push(element.quantity);
+    });
+
+    const idUser = user.sub;
+
+    const result = await addOrder(idUser, idProduct, quantity);
+    active(false);
+
+    if (result.Succes) {
+      clearCart();
+      return navigate("/thanks");
+    }
+
+    return navigate("/purchaseError");
+  };
 
   return (
     <div className={styles.sideBarShop_container}>
@@ -58,6 +98,7 @@ function SideBarShop({ active }) {
           <button
             className={styles.sideBarShop_finalize_order_button}
             type="button"
+            onClick={handlePurchase}
           >
             FINALIZAR PEDIDO
           </button>
