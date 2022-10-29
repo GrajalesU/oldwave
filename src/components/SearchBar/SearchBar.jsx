@@ -42,7 +42,7 @@ function SearchBar({ onSearch: handleSearch }) {
   };
 
   return (
-    <div>
+    <div data-testid="search">
       <div className={styles.search_box}>
         <div className={styles.search_bar}>
           <img
@@ -53,8 +53,10 @@ function SearchBar({ onSearch: handleSearch }) {
           <input
             className={styles.search_input}
             placeholder="Estoy buscando..."
+            value={inputValue}
             onChange={onChange}
             onKeyDown={handleEnter}
+            data-testid="search-input"
           ></input>
           <Dropdown />
         </div>
@@ -62,7 +64,7 @@ function SearchBar({ onSearch: handleSearch }) {
         <button
           className={styles.search_button}
           onClick={onSearch}
-          data-testid="search-element"
+          data-testid="search-button"
         >
           Buscar
         </button>

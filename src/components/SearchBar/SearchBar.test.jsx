@@ -21,7 +21,6 @@ describe("SearchBar component", () => {
     );
     expect(screen.getByAltText("Icono de buscar")).toBeInTheDocument();
     expect(screen.getByText("Todas las categorías")).toBeInTheDocument();
-    expect(screen.getByAltText("Icono de filtro")).toBeInTheDocument();
   });
 
   test("should search by pressing button", async () => {

@@ -1,11 +1,23 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import ProductDetail from "./ProductDetail";
 import * as api from "../../utils/api";
 import { act } from "react-dom/test-utils";
 
 jest.mock("../../utils/api");
+
+const mockAddItem = jest.fn();
+jest.mock("use-shopping-cart", () => {
+  return {
+    useShoppingCart: jest.fn(() => {
+      return {
+        addItem: mockAddItem,
+        cartDetails: {},
+      };
+    }),
+  };
+});
 
 const PRODUCT = {
   id: 5,
@@ -17,6 +29,7 @@ const PRODUCT = {
   reseller: "Sofía Mesada",
   reseller_logo: "https://rickandmortyapi.com/api/character/avatar/730.jpeg",
   reseller_rating: 4.2,
+  stock: 10,
   imgs: [
     {
       id: 14,
@@ -142,5 +155,26 @@ describe("Product Detail Page", () => {
       const resellerRating = `${PRODUCT.reseller_rating} ⭐`;
       expect(screen.getByText(resellerRating)).toBeInTheDocument();
     });
+  });
+
+  test("Should add the product to cart when clicks the add cart button", async () => {
+    api.getProduct.mockResolvedValue({
+      ...PRODUCT,
+    });
+    act(() => {
+      render(<ProductDetail />);
+    });
+
+    await waitFor(() => {
+      const resellerRating = `${PRODUCT.reseller_rating} ⭐`;
+      expect(screen.getByText(resellerRating)).toBeInTheDocument();
+    });
+
+    const addCartButton = screen.getByTestId("add-to-cart");
+    expect(addCartButton).toBeInTheDocument();
+    fireEvent.click(addCartButton);
+    await waitFor(() =>
+      expect(mockAddItem).toHaveBeenCalledWith({ ...PRODUCT })
+    );
   });
 });
