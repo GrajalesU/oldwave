@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ProductCard.module.css";
 import { formatPrice } from "../../utils/numbers";
 import cn from "classnames";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useShoppingCart } from "use-shopping-cart";
 import { toast } from "react-toastify";
 

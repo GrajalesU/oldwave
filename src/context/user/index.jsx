@@ -3,18 +3,19 @@ import React, { useContext, useReducer, createContext } from "react";
 const UserContext = createContext(null);
 const DispatchContext = createContext(null);
 
-const USER_DEFAULT = {
+export const USER_DEFAULT = {
   name: "",
   picture: "",
   email: "",
+  sub: undefined,
 };
 
 const localUser = window.localStorage.getItem("user");
 
 const userState = localUser ? JSON.parse(localUser) : USER_DEFAULT;
 
-const reducer = (state, action) => {
-  switch (action.type) {
+export const reducer = (state, action) => {
+  switch (action?.type) {
     case "login":
       window.localStorage.setItem("user", JSON.stringify(action.value));
       return { ...action.value };

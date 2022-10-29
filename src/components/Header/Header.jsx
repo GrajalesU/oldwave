@@ -41,7 +41,7 @@ function Header() {
       </div>
       <div className={styles.header_end}>
         <button className={styles.header_register} onClick={handleAccount}>
-          {user.name ? "Cerrar sesión" : "Regístrate o inicia sesión"}
+          {user?.name ? "Cerrar sesión" : "Regístrate o inicia sesión"}
         </button>
         <img
           className={cn(
@@ -49,8 +49,9 @@ function Header() {
             styles.header_icons,
             styles.header_user
           )}
-          src={user.picture || User}
+          src={user?.picture || User}
           alt="Icono de login"
+          referrerPolicy="no-referrer"
         ></img>
         <img
           className={cn(

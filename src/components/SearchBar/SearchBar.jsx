@@ -1,8 +1,9 @@
 import styles from "./SearchBar.module.css";
 import Search from "../../assets/icon-search-bar.svg";
-import Filter from "../../assets/icon-filter.svg";
 import { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../context/user";
 
 const options = [
   { value: "Carros", label: "Carros" },
@@ -18,6 +19,8 @@ const options = [
 
 function SearchBar({ onSearch: handleSearch }) {
   const [inputValue, setInputValue] = useState("");
+  const navigate = useNavigate();
+  const user = useUser();
 
   const onChange = (event) => {
     setInputValue(event.target.value);
@@ -33,8 +36,13 @@ function SearchBar({ onSearch: handleSearch }) {
     }
   };
 
+  const handleOrderRedirect = () => {
+    if (user.name) return navigate("/orders");
+    return navigate("login");
+  };
+
   return (
-    <div>
+    <div data-testid="search">
       <div className={styles.search_box}>
         <div className={styles.search_bar}>
           <img
@@ -45,8 +53,10 @@ function SearchBar({ onSearch: handleSearch }) {
           <input
             className={styles.search_input}
             placeholder="Estoy buscando..."
+            value={inputValue}
             onChange={onChange}
             onKeyDown={handleEnter}
+            data-testid="search-input"
           ></input>
           <Dropdown />
         </div>
@@ -54,14 +64,13 @@ function SearchBar({ onSearch: handleSearch }) {
         <button
           className={styles.search_button}
           onClick={onSearch}
-          data-testid="search-element"
+          data-testid="search-button"
         >
           Buscar
         </button>
-        <div className={styles.filter}>
-          <img src={Filter} alt="Icono de filtro"></img>
-          <button className={styles.filter_button}>Filtros</button>
-        </div>
+        <button className={styles.filter_button} onClick={handleOrderRedirect}>
+          Compras
+        </button>
       </div>
     </div>
   );
