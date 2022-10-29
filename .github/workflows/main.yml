@@ -18,6 +18,8 @@ jobs:
         run: npm install
       - name: Run unit test
         run: npm test
+      - name: start server
+        run: npm run dev
       - name: Run e2e test
         run: npm run cypress:run
       - name: Building project
