@@ -16,17 +16,23 @@ jest.mock("../../context/user", () => {
   };
 });
 
-// jest.mock("../../utils/user", () => {
-//   return {
-//     getUser: jest.fn(async () => {
-//       return {
-//         name: "Juan",
-//         picture: "https://www.randomImage.com",
-//         email: "juan@gmail.com",
-//       };
-//     }),
-//   };
-// });
+jest.mock("../../utils/user", () => {
+  return {
+    getUser: jest.fn(async () => {
+      return {
+        name: "Juan",
+        picture: "https://www.randomImage.com",
+        email: "juan@gmail.com",
+      };
+    }),
+  };
+});
+
+jest.mock("../../utils/api", () => {
+  return {
+    handleUser: jest.fn(),
+  };
+});
 
 describe("Login page", () => {
   test("All in container", () => {

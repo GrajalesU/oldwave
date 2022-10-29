@@ -1,4 +1,4 @@
-import { getProduct } from "./api";
+import { getProduct, handleUser, addOrder, getOrders } from "./api";
 
 global.fetch = jest.fn(() =>
   Promise.resolve({
@@ -54,5 +54,29 @@ describe("get product of backend", () => {
 
     const product = await getProduct("1");
     expect(product).toEqual(null);
+  });
+});
+
+describe("set user of backend", () => {
+  test("Set the product", async () => {
+    const product = await handleUser("1", "1", "1", "1");
+
+    expect(product.id).toEqual(undefined);
+  });
+});
+
+describe("set order of backend", () => {
+  test("Set the order", async () => {
+    const product = await addOrder('1','1','1');
+
+    expect(product.id).toEqual(undefined);
+  });
+});
+
+describe("get orders of backend", () => {
+  test("get the order", async () => {
+    const product = await getOrders('1');
+
+    expect(product.id).toEqual(undefined);
   });
 });

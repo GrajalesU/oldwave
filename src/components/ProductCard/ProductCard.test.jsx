@@ -44,5 +44,6 @@ describe("ProductCard component", () => {
     expect(screen.getByText("Agregar al carrito")).toBeInTheDocument();
     expect(screen.getByTestId("card-element")).toBeInTheDocument();
     fireEvent.click(screen.getByTestId("card-element"));
+    fireEvent.click(screen.getByText("Agregar al carrito"));
   });
 });
